@@ -1,5 +1,5 @@
 #!/bin/bash
-python onnxruntime/tools/ci_build/build.py \
+python3 onnxruntime/tools/ci_build/build.py \
 --build_dir onnxruntime/build/wasm \
 --config=MinSizeRel \
 --build_wasm_static_lib \
