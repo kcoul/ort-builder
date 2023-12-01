@@ -3,11 +3,11 @@
  1. WASM build broken (macOS/Win?), may require `iconv` install and/or building from Linux, see: https://github.com/microsoft/onnxruntime/issues/17135  
  2. Android build was added for the four possible Android architectures 
  	- Add equivalent of the following to your shell profile if not already there:
-	```export ANDROID_HOME=/Users/m2dev/Library/Android/sdk```
-	```export ANDROID_NDK_HOME=/Users/m2dev/Library/Android/sdk/ndk/25.2.9519653```
+	```export ANDROID_HOME=/Users/<user_name>/Library/Android/sdk```
+	```export ANDROID_NDK_HOME=/Users/<user_name>/Library/Android/sdk/ndk/25.2.9519653```
 	- When building add one of four architectures as additional argument, i.e.
 	```./build-android.sh {arm64-v8a, armeabi-v7a, x86, x86_64}```
-	- CombineArchives step is WIP for Android (must be run from Linux)
+	- CombineArchives step is WIP for Android (will need to be run from Linux)
 
 
 # ONNX Runtime static library builder
