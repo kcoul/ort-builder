@@ -1,5 +1,5 @@
 #!/bin/bash
-python onnxruntime/tools/ci_build/build.py \
+python3 onnxruntime/tools/ci_build/build.py \
   --build_dir onnxruntime/build/iOS_Simulator_arm64 \
   --config=MinSizeRel \
   --use_xcode \

@@ -9,7 +9,7 @@ build_arch() {
 
 	CMAKE_BUILD_TYPE=MinSizeRel
 
-	python onnxruntime/tools/ci_build/build.py \
+	python3 onnxruntime/tools/ci_build/build.py \
 	--build_dir "onnxruntime/build/macOS_${arch}" \
 	--config=${CMAKE_BUILD_TYPE} \
 	--parallel \
