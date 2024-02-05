@@ -54,7 +54,7 @@ build_arch "$ONNX_CONFIG" arm64
 
 mkdir -p libs/macos-arm64_x86_64
 lipo -create onnxruntime-macos_x86_64-static-combined.a \
-dir="onnxruntime-${version}-macOS-universal"
+dir="onnxruntime-macOS-universal"
      -output "libs/macos-arm64_x86_64/libonnxruntime.a"
 rm onnxruntime-macos_x86_64-static-combined.a
 rm onnxruntime-macos_arm64-static-combined.a
