@@ -11,3 +11,4 @@ onnxruntime.xcframework
 *.a
 .DS_Store
 node_modules
+.idea
