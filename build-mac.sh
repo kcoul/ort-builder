@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 set -euf -o pipefail
 
-ONNX_CONFIG="${1:-model.required_operators_and_types.config}"
+#ONNX_CONFIG="${1:-model.required_operators_and_types.config}"
 CMAKE_BUILD_TYPE=MinSizeRel
 
 build_arch() {
-  ONNX_CONFIG="$1"
-  ARCH="$2"
+  #ONNX_CONFIG="$1"
+  #ARCH="$2"
+  ARCH="$1"
 
 	python3 onnxruntime/tools/ci_build/build.py \
   --build_dir "onnxruntime/build/macOS_${ARCH}" \
@@ -15,8 +16,6 @@ build_arch() {
   --minimal_build \
   --apple_deploy_target="10.13" \
   --disable_ml_ops --disable_rtti \
-  --include_ops_by_config "$ONNX_CONFIG" \
-  --enable_reduced_operator_type_support \
   --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
 	--skip_tests \
 	--compile_no_warning_as_error
@@ -49,8 +48,11 @@ build_arch() {
   "${BUILD_DIR}/_deps/abseil_cpp-build/absl/base/libabsl_raw_logging_internal.a"
 }
 
-build_arch "$ONNX_CONFIG" x86_64
-build_arch "$ONNX_CONFIG" arm64
+#build_arch "$ONNX_CONFIG" x86_64
+#build_arch "$ONNX_CONFIG" arm64
+
+build_arch x86_64
+build_arch arm64
 
 mkdir -p libs/macos-arm64_x86_64
 lipo -create onnxruntime-macos_x86_64-static-combined.a \
