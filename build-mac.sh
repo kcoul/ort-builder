@@ -9,7 +9,7 @@ build_arch() {
   #ARCH="$2"
   ARCH="$1"
 
-  python onnxruntime/tools/ci_build/build.py \
+  python3 onnxruntime/tools/ci_build/build.py \
   --build_dir "onnxruntime/build/macOS_${ARCH}" \
   --config=${CMAKE_BUILD_TYPE} \
   --parallel \
