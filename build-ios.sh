@@ -11,7 +11,7 @@ python3 onnxruntime/tools/ci_build/build.py \
 --ios \
 --use_xcode \
 --build_apple_framework \
---ios_sysroot iphoneos \
+--apple_sysroot iphoneos \
 --osx_arch ${ARCH} \
 --parallel \
 --apple_deploy_target="14.0" \
