@@ -12,3 +12,4 @@ onnxruntime.xcframework
 .DS_Store
 node_modules
 .idea
+cmake-build-*
