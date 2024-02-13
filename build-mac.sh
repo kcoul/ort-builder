@@ -18,7 +18,8 @@ build_arch() {
   --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
 	--skip_tests \
 	--compile_no_warning_as_error \
-  --use_coreml
+  --use_coreml \
+  --build_shared_lib
 
   BUILD_DIR=./onnxruntime/build/macOS_${ARCH}/${CMAKE_BUILD_TYPE}
 
