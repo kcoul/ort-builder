@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 set -euf -o pipefail
 
-#ONNX_CONFIG="${1:-model.required_operators_and_types.config}"
 CMAKE_BUILD_TYPE=MinSizeRel
 
 build_arch() {
-  #ONNX_CONFIG="$1"
-  #ARCH="$2"
   ARCH="$1"
 
   python3 onnxruntime/tools/ci_build/build.py \
@@ -14,7 +11,8 @@ build_arch() {
   --config=${CMAKE_BUILD_TYPE} \
   --parallel \
   --apple_deploy_target="10.13" \
-  --disable_ml_ops --disable_rtti \
+  --disable_ml_ops \
+  --disable_rtti \
   --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
 	--skip_tests \
 	--compile_no_warning_as_error \
@@ -50,9 +48,6 @@ build_arch() {
   "${BUILD_DIR}/_deps/abseil_cpp-build/absl/container/libabsl_raw_hash_set.a" \
   "${BUILD_DIR}/_deps/abseil_cpp-build/absl/base/libabsl_raw_logging_internal.a"
 }
-
-#build_arch "$ONNX_CONFIG" x86_64
-#build_arch "$ONNX_CONFIG" arm64
 
 build_arch x86_64
 build_arch arm64

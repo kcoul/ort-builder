@@ -1,12 +1,9 @@
 #!/usr/bin/env bash
 set -euf -o pipefail
 
-ONNX_CONFIG="${1:-model.required_operators_and_types.config}"
 CMAKE_BUILD_TYPE=MinSizeRel
 
 build_arch() {
-  #ONNX_CONFIG="$1"
-  #ARCH="$2"
   ARCH="$1"
 
 python3 onnxruntime/tools/ci_build/build.py \
@@ -19,7 +16,8 @@ python3 onnxruntime/tools/ci_build/build.py \
   --osx_arch ${ARCH} \
   --parallel \
   --apple_deploy_target="14.0" \
-  --disable_ml_ops --disable_rtti \
+  --disable_ml_ops \
+  --disable_rtti \
   --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
   --skip_tests \
   --use_coreml
