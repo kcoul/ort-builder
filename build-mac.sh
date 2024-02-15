@@ -8,17 +8,18 @@ build_arch() {
   ONNX_CONFIG="$1"
   ARCH="$2"
 
-  python onnxruntime/tools/ci_build/build.py \
+  python3 onnxruntime/tools/ci_build/build.py \
   --build_dir "onnxruntime/build/macOS_${ARCH}" \
   --config=${CMAKE_BUILD_TYPE} \
   --parallel \
-  --minimal_build \
   --apple_deploy_target="10.13" \
   --disable_ml_ops --disable_rtti \
   --include_ops_by_config "$ONNX_CONFIG" \
   --enable_reduced_operator_type_support \
   --cmake_extra_defines CMAKE_OSX_ARCHITECTURES="${ARCH}" \
-  --skip_tests
+  --skip_tests \
+  --use_xnnpack\
+  --build_shared_lib
 
   BUILD_DIR=./onnxruntime/build/macOS_${ARCH}/${CMAKE_BUILD_TYPE}
 
