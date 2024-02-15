@@ -9,3 +9,6 @@ libs
 onnxruntime.xcframework
 *.a
 
+.idea
+node_modules
+.DS_Store
