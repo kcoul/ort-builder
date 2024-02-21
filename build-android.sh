@@ -8,6 +8,9 @@ python3 onnxruntime/tools/ci_build/build.py \
 --android \
 --android_abi="${arch}" \
 --parallel \
---disable_ml_ops --disable_exceptions --disable_rtti \
+--disable_ml_ops \
+--disable_exceptions \
+--disable_rtti \
 --skip_tests \
---use_nnapi
+--use_nnapi \
+--build_shared_lib
