@@ -8,4 +8,6 @@ model/*
 libs
 onnxruntime.xcframework
 *.a
-
+.DS_Store
+.idea
+node_modules
