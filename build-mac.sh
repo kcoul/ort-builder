@@ -8,7 +8,7 @@ build_arch() {
   ONNX_CONFIG="$1"
   ARCH="$2"
 
-  python onnxruntime/tools/ci_build/build.py \
+  python3 onnxruntime/tools/ci_build/build.py \
   --build_dir "onnxruntime/build/macOS_${ARCH}" \
   --config=${CMAKE_BUILD_TYPE} \
   --parallel \

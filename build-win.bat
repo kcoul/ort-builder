@@ -29,8 +29,6 @@ call onnxruntime\build.bat ^
 --parallel ^
 --minimal_build ^
 --disable_ml_ops --disable_rtti ^
---include_ops_by_config "%ONNX_CONFIG%" ^
---enable_reduced_operator_type_support ^
 --enable_msvc_static_runtime ^
 --skip_tests ^
 	|| exit \b

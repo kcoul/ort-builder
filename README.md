@@ -1,3 +1,27 @@
+## Added notes:
+
+### macOS
+1. The following patch should be applied: `https://github.com/microsoft/onnxruntime/issues/18036#issuecomment-1869894544` TODO: apply automatically
+2. The following homebrew packages interfere with the build process if installed! `protobuf, abseil`
+
+### iOS
+
+### Linux
+
+### Android
+ 1. Android build was added for the four possible Android architectures 
+ 	- Add equivalent of the following to your shell profile if not already there:
+	```export ANDROID_HOME=/Users/<user_name>/Library/Android/sdk```
+	```export ANDROID_NDK_HOME=/Users/<user_name>/Library/Android/sdk/ndk/25.2.9519653```
+	- When building add one of four architectures as additional argument, i.e.
+	```./build-android.sh {arm64-v8a, armeabi-v7a, x86, x86_64}```
+	- CombineArchives step is WIP for Android (will need to be run from Linux)
+
+### WASM
+ 1. WASM build broken (macOS/Win?), may require `iconv` install and/or building from Linux, see: https://github.com/microsoft/onnxruntime/issues/17135  
+
+
+
 # ONNX Runtime static library builder
 
 Converts an [ONNX](https://onnx.ai) model to ORT format and serializes it to C++ source code, generate custom slimmed ONNX Runtime static libs & xcframework for apple platforms.

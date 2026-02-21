@@ -1,4 +1,5 @@
 venv
+onnxruntime
 .vscode/settings.json
 *.ort
 *.onnx
@@ -8,4 +9,7 @@ model/*
 libs
 onnxruntime.xcframework
 *.a
-
+.DS_Store
+node_modules
+.idea
+cmake-build-*
